@@ -1,0 +1,17 @@
+[user]
+	name = Tonći Galić
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	cm = commit
+	last = log -n 1
+	st = status
+	df = diff
+	contributors = shortlog --summary --numbered
+	fix = !$EDITOR `git diff --name-only --diff-filter=U`
+	unstage = reset HEAD
+[push]
+	default = current
+[fetch]
+	prune = true
