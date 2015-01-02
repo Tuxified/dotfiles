@@ -1,0 +1,42 @@
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # OS X `ls`
+    colorflag="-G"
+fi
+
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
+
+# List all files colorized in long format, including dot files
+alias la="ls -laF ${colorflag}"
+
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# Flush Directory Service cache
+alias dnsflush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# JavaScriptCore REPL
+ijs="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Lock the screen (when going AFK), TODO: make a Linux/Ubuntu version
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Treat others as you would like to be treated http://xkcd.com/149/
+alias please='sudo $(fc -nl -1)'
+
+# TODO: make it work with Ubuntu/Linux as well
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl";
+
