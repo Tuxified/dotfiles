@@ -1,0 +1,31 @@
+# Install binary Apps using Homebrew & Cask
+# Usage: `brew bundle Caskfile`
+
+# Make sure we’re using the latest Homebrew
+update
+
+# Make sure we have Cask installed
+install caskroom/cask/brew-cask
+
+# Carry on installing casks
+cask install alfred
+cask install calibre
+cask install ccleaner
+cask install chromium
+cask install cyberduck
+cask install dropbox
+cask install firefox
+cask install flux
+cask install gas-mask
+cask install google-chrome
+cask install iterm2
+cask install screenhero
+cask install skype
+cask install sqlite-database-browser
+cask install transmission
+cask install transmit
+cask install tunnelblick
+cask install vlc
+
+# Make sure alfred can find these apps
+cask alfred link
