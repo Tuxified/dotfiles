@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+# OS detection
+function is_osx() {
+  [[ "$(uname)" =~ ^Darwin ]] || return 1
+}
+function is_ubuntu() {
+  [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+}
+
+function is_raspbian() {
+  [[ "$(cat /etc/issue 2> /dev/null)" =~ ^Raspbian ]] || return 1
+}
