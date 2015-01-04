@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+
+stream_url = ARGV[0]
+
+ip = '192.168.0.104'
+port = 80
+xbmc_call = "http://#{ip}:#{port}/jsonrpc?request={\"jsonrpc\":\"2.0\",\"method\":\"Player.Open\",\"params\":{\"item\":{\"file\":\"#{stream_url}\"}}}"
+
+puts "Going to stream #{stream_url} to #{ip}"
+Net::HTTP.get(URI URI.encode(xbmc_call))

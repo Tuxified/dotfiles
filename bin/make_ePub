@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# small script to generate an ePub from a folder of files
+# handy if you unzip an ePub, make some changes and want to revert it
+# to an ePub again. http://webdesign.about.com/od/epub/a/build-an-epub.htm
+zip -X0 ebook.epub mimetype
+zip -rDX9 ebook.epub * -x "*.DS_Store" -x mimetype
