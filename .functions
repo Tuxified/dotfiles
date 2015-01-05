@@ -11,3 +11,23 @@ function is_ubuntu() {
 function is_raspbian() {
   [[ "$(cat /etc/issue 2> /dev/null)" =~ ^Raspbian ]] || return 1
 }
+
+# GitHub functions
+# http://openmonkey.com/articles/2009/07/fast-github-clone-bash-function
+# $ gh-clone git@github.com:Tuxified/dotfiles.git
+function gh-clone {
+  gh_url=${1:-`pbpaste`}
+  co_dir=${HOME}/Projects/$(echo $gh_url | sed -e 's/^git@github.com://; s/\//-/; s/\.git$//')
+
+  if [ -d $co_dir ]; then
+    cd $co_dir && git pull origin master
+  else
+    git clone "${gh_url}" "${co_dir}" && cd "${co_dir}"
+  fi
+}
+
+# https://gist.github.com/810859
+# $ gh-get https://github.com/defunkt/facebox/blob/master/src/facebox.js
+function gh-get () {
+  curl -#O $(echo $1 | sed 's|blob/||' | sed 's|github.com|raw.github.com|')
+}
