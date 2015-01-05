@@ -1,6 +1,7 @@
 
 [[ -s "$HOME/.exports" ]]   && source "$HOME/.exports" # Load the default .exports
 [[ -s "$HOME/.functions" ]] && source "$HOME/.functions" # Load the default .functions
+[[ -s "$HOME/.aliases" ]]   && source "$HOME/.aliases" # Load the default .aliases
 [[ -s "$HOME/.profile" ]]   && source "$HOME/.profile" # Load the default .profile
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
