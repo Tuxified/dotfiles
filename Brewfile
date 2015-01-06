@@ -10,6 +10,7 @@ upgrade
 install bash # Bash 4
 install ctags
 install git
+install hub
 install vim --override-system-vi # Better/newer Vim
 install redis
 install tmux

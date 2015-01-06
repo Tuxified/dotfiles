@@ -40,3 +40,6 @@ alias please='sudo $(fc -nl -1)'
 # TODO: make it work with Ubuntu/Linux as well
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl";
 
+# Ruby specifics
+alias b="bundle"
+alias be="bundle exec"
