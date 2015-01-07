@@ -15,6 +15,7 @@ install vim --override-system-vi # Better/newer Vim
 install redis
 install tmux
 install wget
+install heroku-toolbelt
 
 # Install some prog langs, RVM handles Ruby
 install elixir
