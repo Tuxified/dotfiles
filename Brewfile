@@ -17,6 +17,7 @@ install tmux
 install wget
 install heroku-toolbelt
 install mackup
+install homebrew/binary/exercism
 
 # Install some prog langs, RVM handles Ruby
 install elixir
