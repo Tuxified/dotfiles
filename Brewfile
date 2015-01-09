@@ -16,6 +16,7 @@ install redis
 install tmux
 install wget
 install heroku-toolbelt
+install mackup
 
 # Install some prog langs, RVM handles Ruby
 install elixir
