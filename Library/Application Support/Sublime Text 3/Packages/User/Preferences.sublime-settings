@@ -1,0 +1,58 @@
+{
+	"bold_folder_labels": false,
+	"color_scheme": "Packages/User/Solarized (Light) (SL).tmTheme",
+	"default_line_ending": "unix",
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"fallback_encoding": "UTF-8",
+	"file_exclude_patterns":
+	[
+		"*.DS_store",
+		"*.gem",
+		"*.gz",
+		"*.jar",
+		"*.pyc",
+		"*.sassc",
+		"*.scssc",
+		"*.zip",
+		"*.tags",
+		"*.tags_sorted_by_file",
+		"Desktop.ini",
+		"._*",
+		"Thumbs.db",
+		".Spotlight-V100",
+		".Trashes"
+	],
+	"fold_buttons": false,
+	"folder_exclude_patterns":
+	[
+		".sass-cache",
+		".git",
+		".hg",
+		".bin"
+	],
+	"font_family": "Inconsolata, Monaco, Consolas, 'Courier New', Courier",
+	"font_size": 13,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"paths":
+	{
+		"linux":
+		[
+			"/usr/local/bin"
+		],
+		"osx":
+		[
+			"/usr/local/bin"
+		],
+		"windows":
+		[
+		]
+	},
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}

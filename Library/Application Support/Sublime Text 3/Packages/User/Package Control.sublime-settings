@@ -1,0 +1,29 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
+	"installed_packages":
+	[
+		"Better CoffeeScript",
+		"Case Conversion",
+		"CTags",
+		"DashDoc",
+		"Elixir",
+		"Git",
+		"Package Control",
+		"RSpec",
+		"SublimeLinter",
+		"SublimeLinter-coffee",
+		"SublimeLinter-contrib-elixirc",
+		"SublimeLinter-haml",
+		"SublimeLinter-ruby",
+		"Theme - Soda",
+		"Theme - Sodarized",
+		"TrailingSpaces"
+	]
+}

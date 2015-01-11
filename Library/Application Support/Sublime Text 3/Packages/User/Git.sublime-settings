@@ -1,0 +1,4 @@
+{
+  // Use homebrew version of git
+  "git_command": "/usr/local/bin/git"
+}
