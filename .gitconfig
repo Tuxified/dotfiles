@@ -19,3 +19,5 @@
 	default = current
 [fetch]
 	prune = true
+[include]
+	path = .gitconfig.user
