@@ -6,11 +6,15 @@
 	co = checkout
 	cm = commit
 	last = log -n 1
+	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
 	st = status
 	df = diff
+	ds = diff --cached # diff staged
+	dl = diff HEAD^   # diff last commit
 	contributors = shortlog --summary --numbered
 	fix = !$EDITOR `git diff --name-only --diff-filter=U`
 	unstage = reset HEAD
+	uncommit = reset --soft HEAD^
 [push]
 	default = current
 [fetch]
