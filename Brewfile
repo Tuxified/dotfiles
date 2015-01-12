@@ -18,6 +18,7 @@ install wget
 install heroku-toolbelt
 install mackup
 install homebrew/binary/exercism
+install ack
 
 # Install some prog langs, RVM handles Ruby
 install elixir
