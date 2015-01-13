@@ -5,9 +5,9 @@ alias .....="cd ../../../.."
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorflag="--color"
+  colorflag="--color"
 else # OS X `ls`
-    colorflag="-G"
+  colorflag="-G"
 fi
 
 # List all files colorized in long format
@@ -43,3 +43,9 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl";
 # Ruby specifics
 alias b="bundle"
 alias be="bundle exec"
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# Track who is listening to your iTunes music
+alias whotunes='lsof -r 2 -n -P -F n -c iTunes -a -i TCP@`hostname`:3689'
