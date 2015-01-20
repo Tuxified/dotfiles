@@ -15,6 +15,7 @@
 	fix = !$EDITOR `git diff --name-only --diff-filter=U`
 	unstage = reset HEAD
 	uncommit = reset --soft HEAD^
+	alias = config --get-regexp ^alias\\.
 [push]
 	default = current
 [fetch]
