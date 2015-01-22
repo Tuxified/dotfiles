@@ -34,7 +34,7 @@ class RubytapasDownloader
     count = new_episodes.size
     puts "#{count} NEW EPISODES"
 
-
+    verify_download_dir!
     new_episodes.each_with_index do |episode, index|
       puts "DOWNLOADING #{episode.title} (#{index + 1} of #{count})"
       episode.download!
@@ -51,9 +51,14 @@ class RubytapasDownloader
 private
 
   def login_and_save_cookie
-    system %Q{curl -c #{COOKIE_FILE} -d "username=#{USERNAME}&password=#{PASSWORD}" #{LOGIN_URL}}
+    system %Q{curl --silent -o /dev/null -c #{COOKIE_FILE} -d "username=#{USERNAME}&password=#{PASSWORD}" #{LOGIN_URL}}
   end
 
+  def verify_download_dir!
+    return true if Dir.exists?(DOWNLOAD_DIR)
+    require 'fileutils'
+    FileUtils.mkdir_p(DOWNLOAD_DIR)
+  end
 end
 
 
@@ -64,7 +69,7 @@ class Episode
   # Extracts informations from the parsed XML node
   #
   def initialize(parsed_rss_item)
-    @title = parsed_rss_item.css('title').text << ".mp4" #.gsub(/\s|\W/, '-').gsub('--','-')
+    @title = parsed_rss_item.css('title').text << ".mp4"
     @files = {}
     parsed_description = Nokogiri::XML(parsed_rss_item.css('description').text)
     parsed_description.css('a').each do |link|
@@ -72,24 +77,17 @@ class Episode
     end
   end
 
-  # TODO: find out if file was downloaded completely
   def downloaded?
     File.exist?(File.join(DOWNLOAD_DIR, title))
   end
 
   def download!
-    verify_download_dir!
     files.each do |filename, url|
       next unless filename =~ /.+\.mp4$/
       file_path = File.join(DOWNLOAD_DIR, title)
-      system %Q{curl -o "#{file_path}" -b #{COOKIE_FILE} -d "username=#{USERNAME}&password=#{PASSWORD}" #{url}}
+      system %Q{curl  --silent -o "#{file_path}.part" -b #{COOKIE_FILE} -d "username=#{USERNAME}&password=#{PASSWORD}" #{url}}
+      system %Q{mv "#{file_path}.part" "#{file_path}"}
     end
-  end
-
-  def verify_download_dir!
-    return true if Dir.exists?(DOWNLOAD_DIR)
-    require 'fileutils'
-    FileUtils.mkdir_p(DOWNLOAD_DIR)
   end
 end
 
