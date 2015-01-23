@@ -2,6 +2,7 @@
 
 require 'httparty'
 require 'nokogiri'
+require 'thread'
 
 USERNAME = ENV['RTAPAS_USERNAME'] || "email-used@in-registration.com"
 PASSWORD = ENV['RTAPAS_PASSWORD'] || "your-password-here"
@@ -30,16 +31,26 @@ class RubytapasDownloader
     puts "--- LOG IN AND SAVE COOKIE ---"
     login_and_save_cookie
 
-    new_episodes = @episodes.reject(&:downloaded?)
+    new_episodes = Queue.new
+    @episodes.reject(&:downloaded?).each {|e| new_episodes.push e }
     count = new_episodes.size
     puts "#{count} NEW EPISODES"
 
     verify_download_dir!
-    new_episodes.each_with_index do |episode, index|
-      puts "DOWNLOADING #{episode.title} (#{index + 1} of #{count})"
-      episode.download!
+    thread_pool = (1..4).map do
+      Thread.new do
+        begin
+          while episode = new_episodes.pop(true)
+            puts "DOWNLOADING #{episode.title} (#{count - new_episodes.length} of #{count})"
+            episode.download!
+          end
+        rescue ThreadError
+          # queue is exhausted, nothing to do
+        end
+      end
     end
 
+    thread_pool.each(&:join)
     puts "--- FINISHED RUBYTAPAS DOWNLOADER ---"
   rescue Exception => e
     puts "--- EXCEPTION RAISED WHILE DOWNLOADING --"
