@@ -6,7 +6,8 @@ require 'thread'
 
 USERNAME = ENV['RTAPAS_USERNAME'] || "email-used@in-registration.com"
 PASSWORD = ENV['RTAPAS_PASSWORD'] || "your-password-here"
-DOWNLOAD_DIR = ARGV.pop || File.dirname(__FILE__)
+DOWNLOAD_DIR = ARGV.shift || File.dirname(__FILE__)
+NUM_WORKERS = ARGV.shift.to_i || 4
 COOKIE_FILE = 'cookies.txt' # by example
 
 # Adapted version of: https://github.com/cibernox/rubytapas_downloader
@@ -37,7 +38,7 @@ class RubytapasDownloader
     puts "#{count} NEW EPISODES"
 
     verify_download_dir!
-    thread_pool = (1..4).map do
+    thread_pool = (1..NUM_WORKERS).map do
       Thread.new do
         begin
           while episode = new_episodes.pop(true)
