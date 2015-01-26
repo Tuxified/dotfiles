@@ -8,7 +8,7 @@ export LC_ALL="en_US.UTF-8";
 # don't put duplicate lines in the history.
 export HISTCONTROL=ignoredups
 # Make some commands not show up in history
-export HISTIGNORE="la:ls:cd:cd ~-:..:pwd:fg:fc:jobs:exit:date:* --help";
+export HISTIGNORE="l:la:ls:lsd:cd:cd ~-:..:pwd:fg:fc:jobs:exit:date:* --help";
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
