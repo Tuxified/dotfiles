@@ -36,6 +36,7 @@ class RubytapasDownloader
     @episodes.reject(&:downloaded?).each {|e| new_episodes.push e }
     count = new_episodes.size
     puts "#{count} NEW EPISODES"
+    exit if count.zero?
 
     verify_download_dir!
     thread_pool = (1..NUM_WORKERS).map do
