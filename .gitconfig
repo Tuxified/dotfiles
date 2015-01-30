@@ -3,6 +3,7 @@
 [core]
 	editor = vim
 [alias]
+	br = branch
 	co = checkout
 	cm = commit
 	last = log -n 1
