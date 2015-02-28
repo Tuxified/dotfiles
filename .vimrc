@@ -4,6 +4,8 @@ colorscheme solarized
 
 " Make Vim more useful
 set nocompatible
+" Map jjj to ESC, less hand movement
+imap jj <ESC>
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
