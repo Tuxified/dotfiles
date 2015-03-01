@@ -7,7 +7,7 @@ require 'thread'
 USERNAME = ENV['RTAPAS_USERNAME'] || "email-used@in-registration.com"
 PASSWORD = ENV['RTAPAS_PASSWORD'] || "your-password-here"
 DOWNLOAD_DIR = ARGV.shift || File.dirname(__FILE__)
-NUM_WORKERS = ARGV.shift.to_i || 4
+NUM_WORKERS = (ARGV.shift || 4).to_i
 COOKIE_FILE = 'cookies.txt' # by example
 
 # Adapted version of: https://github.com/cibernox/rubytapas_downloader
