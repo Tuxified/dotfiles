@@ -12,6 +12,11 @@ set clipboard=unnamed
 set wildmenu
 " Allow cursor keys in insert mode
 set esckeys
+" Allow C-a/e to move begin/end of line
+imap <C-e> <End>
+imap <C-a> <Home>
+nmap <C-e> <End>
+nmap <C-a> <Home>
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
