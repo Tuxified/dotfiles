@@ -61,6 +61,8 @@ set expandtab
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
+" Use indentation from current line when starting new
+set autoindent
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -77,6 +79,10 @@ set noerrorbells
 set nostartofline
 " Show the cursor position
 set ruler
+" Show delimiter at 80th column
+if (exists('+colorcolumn'))
+	set colorcolumn=80
+endif
 " Don’t show the intro message when starting Vim
 set shortmess=atI
 " Show the current mode
@@ -115,7 +121,8 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 	" Always start git commit msg on first line
 	autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
-    autocmd FileType gitcommit set tw=80
+	autocmd FileType gitcommit set tw=80
+	autocmd FileType markdown  set tw=80
 endif
 
 " Commenting blocks of code.
