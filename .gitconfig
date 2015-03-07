@@ -2,6 +2,7 @@
 	name = Tonći Galić
 [core]
 	editor = vim
+	excludesfile = ~/.cvsignore
 [alias]
 	br = branch
 	co = checkout
