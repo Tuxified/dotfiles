@@ -9,20 +9,26 @@
 	cm = commit
 	last = log -n 1
 	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+	sl = stash list
+	sp = stash show -p
+	ss = stash show
 	st = status
 	df = diff
 	ds = diff --cached # diff staged
 	dl = diff HEAD^   # diff last commit
-	contributors = shortlog --summary --numbered
+	contributors = shortlog --summary --numbered --no-merges
 	fix = !$EDITOR `git diff --name-only --diff-filter=U`
 	unstage = reset HEAD
 	uncommit = reset --soft HEAD^
 	alias = config --get-regexp ^alias\\.
 	ec = config --global -e
-	cb = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f" # clean specified or master branch merges
+	cb = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f" # clean specified or master branch merges
+	home = rev-parse --show-toplevel
 [push]
 	default = current
 [fetch]
 	prune = true
 [include]
 	path = .gitconfig.user
+[github]
+	user = tuxified
