@@ -82,7 +82,7 @@ class Episode
   # Extracts informations from the parsed XML node
   #
   def initialize(parsed_rss_item)
-    @title = parsed_rss_item.css('title').text << ".mp4"
+    @title = parsed_rss_item.css('title').text.gsub('/', ':') << ".mp4"
     @files = {}
     parsed_description = Nokogiri::XML(parsed_rss_item.css('description').text)
     parsed_description.css('a').each do |link|

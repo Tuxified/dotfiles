@@ -14,6 +14,7 @@ cask install ccleaner
 cask install chromium
 cask install cyberduck
 cask install dropbox
+cask install emacs
 cask install firefox
 cask install flux
 cask install gas-mask

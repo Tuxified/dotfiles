@@ -15,7 +15,7 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export GOPATH=~/Development/go
 
 # Add Heroku, Go, RVM, Postgres and small scripts to path
-export PATH="/usr/local/bin:$PATH:/usr/local/heroku/bin:$GOPATH/bin:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$HOME/bin"
+export PATH="/usr/local/bin:$PATH:/usr/local/heroku/bin:$GOPATH/bin:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/bin"
 
 # Needed for Rust
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/Cellar/rust/lib
