@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Normal cron ENV has a very limited PATH
+source ~/.exports
+
+brew update > /dev/null
+
+# check if we have outdated formulas
+outdated_stuff="$(brew outdated)"
+if [ -n "$outdated_stuff" ]; then
+  osascript -e "display notification \"Outdated stuff:\n $outdated_stuff\" with title \"Upgrade your kegs\""
+fi
