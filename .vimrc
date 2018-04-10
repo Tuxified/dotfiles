@@ -194,7 +194,9 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * :Vexplore
+  if expand('%:t') != "COMMIT_EDITMSG"
+    autocmd VimEnter * :Vexplore
+  endif
 augroup END
 
 " keep stuff selected after changing indent
