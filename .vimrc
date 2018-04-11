@@ -199,6 +199,13 @@ augroup ProjectDrawer
   endif
 augroup END
 
+" mappings for test.vim
+nmap <leader>tn :TestNearest<CR> " t Ctrl+n
+nmap <leader>tf :TestFile<CR>    " t Ctrl+f
+nmap <leader>ts :TestSuite<CR>   " t Ctrl+s
+nmap <leader>tl :TestLast<CR>    " t Ctrl+l
+nmap <leader>tg :TestVisit<CR>   " t Ctrl+g
+
 " keep stuff selected after changing indent
 vnoremap < <gv
 vnoremap > >gv
